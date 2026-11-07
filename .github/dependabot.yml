@@ -1,305 +1,407 @@
+# Weekly dependency patches across all configured ecosystems.
 version: 2
 updates:
-  - package-ecosystem: gomod
-    directory: '/'
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  ignore:
+  - dependency-name: github.com/alecthomas/kingpin/v2
+  - dependency-name: github.com/go-mysql-org/go-mysql
+  - dependency-name: github.com/gogo/protobuf
+  - dependency-name: github.com/julienschmidt/httprouter
+  - dependency-name: github.com/keys-pub/go-libfido2
+  - dependency-name: github.com/microsoft/go-mssqldb
+  - dependency-name: github.com/redis/go-redis/v9
+  - dependency-name: github.com/vulcand/predicate
+  - dependency-name: github.com/hinshun/vt10x
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /api
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  ignore:
+  - dependency-name: github.com/alecthomas/kingpin/v2
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /assets/aws
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /assets/backport
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  ignore:
+  - dependency-name: github.com/alecthomas/kingpin/v2
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /build.assets/tooling
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  ignore:
+  - dependency-name: github.com/hashicorp/terraform-plugin-framework
+  - dependency-name: github.com/hashicorp/terraform-plugin-go
+  - dependency-name: github.com/hashicorp/terraform-plugin-sdk/v2
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /integrations/terraform
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /integrations/terraform-mwi
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: gomod
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - go
+  - no-changelog
+  directory: /integrations/event-handler
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: cargo
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - rust
+  - no-changelog
+  directory: /
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: cargo
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - rust
+  - no-changelog
+  directory: /lib/srv/desktop/rdp/rdpclient
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: cargo
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - rust
+  - no-changelog
+  directory: /tool/fdpass-teleport
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: cargo
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - rust
+  - no-changelog
+  directory: /web/packages/shared/libs/ironrdp
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: npm
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - ui
+  - no-changelog
+  directory: /
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: github-actions
+  cooldown:
+    default-days: 2
+  labels:
+  - dependencies
+  - github-actions
+  - no-changelog
+  directory: /
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: docker
+  directories:
+  - /
+  - /.github/services
+  - /build.assets
+  - /build.assets/buildbox
+  - /build.assets/charts
+  - /examples/teleport-usage
+  - /integrations/access
+  - /integrations/event-handler
+  - /integrations/event-handler/build.assets
+  - /integrations/kube-agent-updater
+  - /integrations/operator
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: gomod
+  directories:
+  - /build.assets/tooling/cmd/render-tests/_sample
+  - /examples/access-plugin-minimal
+  - /examples/api-sync-roles
+  - /examples/desktop-registration
+  - /examples/go-client
+  - /examples/mcp-servers/verify-teleport-jwt-mcp-go
+  - /examples/service-discovery-api-client
+  - /examples/teleport-usage
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: helm
+  directories:
+  - /assets/loadtest/helm/node-agent
+  - /assets/loadtest/helm/resources
+  - /assets/loadtest/helm/soaktest
+  - /assets/loadtest/helm/trusted-cluster
+  - /examples/chart/access/datadog
+  - /examples/chart/access/discord
+  - /examples/chart/access/email
+  - /examples/chart/access/jira
+  - /examples/chart/access/mattermost
+  - /examples/chart/access/msteams
+  - /examples/chart/access/pagerduty
+  - /examples/chart/access/slack
+  - /examples/chart/event-handler
+  - /examples/chart/tbot
+  - /examples/chart/tbot-spiffe-daemon-set
+  - /examples/chart/teleport-cluster
+  - /examples/chart/teleport-cluster/charts/teleport-operator
+  - /examples/chart/teleport-kube-agent
+  - /examples/chart/teleport-relay
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: npm
+  directories:
+  - /e2e
+  - /web/packages/build
+  - /web/packages/design
+  - /web/packages/shared
+  - /web/packages/teleport
+  - /web/packages/teleterm
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: terraform
+  directories:
+  - /assets/loadtest/azure
+  - /assets/loadtest/cluster/gcp
+  - /assets/loadtest/databases/rds
+  - /examples/athena
+  - /examples/aws/terraform/ecs-agent
+  - /examples/aws/terraform/ha-autoscale-cluster
+  - /examples/aws/terraform/starter-cluster
+  - /examples/identity-activity-center
+  - /examples/resources/terraform
+  - /examples/terraform-starter
+  - /examples/terraform-starter/agent-installation
+  - /examples/terraform-starter/aws
+  - /examples/terraform-starter/azure
+  - /examples/terraform-starter/env_role
+  - /examples/terraform-starter/gcp
+  - /examples/terraform-starter/oidc
+  - /examples/terraform-starter/saml
+  - /examples/terraform/entra-id-integration
+  - /integrations/terraform-modules/teleport/discovery/aws
+  - /integrations/terraform-modules/teleport/discovery/aws/examples/single-account
+  - /integrations/terraform-mwi/examples/data-sources/teleportmwi_kubernetes
+  - /integrations/terraform-mwi/examples/ephemeral-resources/teleportmwi_kubernetes
+  - /integrations/terraform/examples/provider
+  - /integrations/terraform/examples/resources/teleport_access_list
+  - /integrations/terraform/examples/resources/teleport_access_list_member
+  - /integrations/terraform/examples/resources/teleport_access_monitoring_rule
+  - /integrations/terraform/examples/resources/teleport_app
+  - /integrations/terraform/examples/resources/teleport_app_auth_config
+  - /integrations/terraform/examples/resources/teleport_auth_preference
+  - /integrations/terraform/examples/resources/teleport_autoupdate_config
+  - /integrations/terraform/examples/resources/teleport_autoupdate_version
+  - /integrations/terraform/examples/resources/teleport_bot
+  - /integrations/terraform/examples/resources/teleport_cluster_maintenance_config
+  - /integrations/terraform/examples/resources/teleport_cluster_networking_config
+  - /integrations/terraform/examples/resources/teleport_database
+  - /integrations/terraform/examples/resources/teleport_discovery_config
+  - /integrations/terraform/examples/resources/teleport_dynamic_windows_desktop
+  - /integrations/terraform/examples/resources/teleport_github_connector
+  - /integrations/terraform/examples/resources/teleport_health_check_config
+  - /integrations/terraform/examples/resources/teleport_installer
+  - /integrations/terraform/examples/resources/teleport_integration
+  - /integrations/terraform/examples/resources/teleport_login_rule
+  - /integrations/terraform/examples/resources/teleport_oidc_connector
+  - /integrations/terraform/examples/resources/teleport_okta_import_rule
+  - /integrations/terraform/examples/resources/teleport_provision_token
+  - /integrations/terraform/examples/resources/teleport_role
+  - /integrations/terraform/examples/resources/teleport_saml_connector
+  - /integrations/terraform/examples/resources/teleport_server
+  - /integrations/terraform/examples/resources/teleport_session_recording_config
+  - /integrations/terraform/examples/resources/teleport_static_host_user
+  - /integrations/terraform/examples/resources/teleport_trusted_cluster
+  - /integrations/terraform/examples/resources/teleport_trusted_device
+  - /integrations/terraform/examples/resources/teleport_user
+  - /integrations/terraform/examples/resources/teleport_workload_identity
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+- package-ecosystem: uv
+  directory: /examples/mcp-servers/verify-teleport-jwt-fastmcp
+  multi-ecosystem-group: weekly-patches
+  patterns:
+  - '*'
+  ignore:
+  - dependency-name: '*'
+    update-types:
+    - version-update:semver-major
+    - version-update:semver-minor
+multi-ecosystem-groups:
+  weekly-patches:
     schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    ignore:
-      # Forked/replaced dependencies
-      - dependency-name: github.com/alecthomas/kingpin/v2
-      - dependency-name: github.com/go-mysql-org/go-mysql
-      - dependency-name: github.com/gogo/protobuf
-      - dependency-name: github.com/julienschmidt/httprouter
-      - dependency-name: github.com/keys-pub/go-libfido2
-      - dependency-name: github.com/microsoft/go-mssqldb
-      - dependency-name: github.com/redis/go-redis/v9
-      - dependency-name: github.com/vulcand/predicate
-      - dependency-name: github.com/hinshun/vt10x
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/api'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/assets/aws'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    ignore:
-      # Forked/replaced dependencies
-      - dependency-name: github.com/alecthomas/kingpin/v2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/assets/backport'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/build.assets/tooling'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    ignore:
-      # Forked/replaced dependencies
-      - dependency-name: github.com/alecthomas/kingpin/v2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/integrations/terraform'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    ignore:
-      # breaks compatibility
-      - dependency-name: github.com/hashicorp/terraform-plugin-framework
-      - dependency-name: github.com/hashicorp/terraform-plugin-go
-      - dependency-name: github.com/hashicorp/terraform-plugin-sdk/v2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/integrations/terraform-mwi'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: gomod
-    directory: '/integrations/event-handler'
-    schedule:
-      interval: cron
-      cronjob: '0 9 1 6,12 *' # On December 1 and June 1 at 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      go:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'go'
-      - 'no-changelog'
-
-  - package-ecosystem: cargo
-    directory: '/'
-    schedule:
-      interval: monthly
-      day: 'sunday'
-      time: '09:00' # 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      rust:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'rust'
-      - 'no-changelog'
-
-  - package-ecosystem: cargo
-    directory: '/lib/srv/desktop/rdp/rdpclient'
-    schedule:
-      interval: monthly
-      day: 'sunday'
-      time: '09:00' # 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      rust:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'rust'
-      - 'no-changelog'
-
-  - package-ecosystem: cargo
-    directory: '/tool/fdpass-teleport'
-    schedule:
-      interval: monthly
-      day: 'sunday'
-      time: '09:00' # 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      rust:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'rust'
-      - 'no-changelog'
-
-  - package-ecosystem: cargo
-    directory: '/web/packages/shared/libs/ironrdp/Cargo.toml'
-    schedule:
-      interval: monthly
-      day: 'sunday'
-      time: '09:00' # 9am UTC
-    cooldown:
-      default-days: 2
-    open-pull-requests-limit: 20
-    groups:
-      rust:
-        update-types:
-          - 'minor'
-          - 'patch'
-    labels:
-      - 'dependencies'
-      - 'rust'
-      - 'no-changelog'
-
-  - package-ecosystem: npm
-    directory: '/'
-    schedule:
-      interval: monthly
-      day: 'sunday'
-      time: '09:00' # 9am UTC
-    cooldown:
-      default-days: 2
-    labels:
-      - 'dependencies'
-      - 'ui'
-      - 'no-changelog'
-    groups:
-      # These packages are either directly involved in the process of building Teleport Connect or
-      # they make use of native dependencies. Verifying that updating them didn't break anything
-      # involves making a tag build.
-      electron:
-        patterns:
-          - 'electron*'
-          - node-gyp
-          - node-pty
-      ui:
-        update-types:
-          - 'minor'
-          - 'patch'
-        # Contrary to what the docs say, if a dependency matches more than one rule, it is _not_
-        # included in the first group that it matches. Other groups must be explicitly included,
-        # otherwise Dependabot is going to perform minor Electron updates in the UI group.
-        # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--
-        exclude-patterns:
-          - 'electron*'
-          - node-gyp
-          - node-pty
-    open-pull-requests-limit: 20
-  - package-ecosystem: github-actions
-    directory: '/.github/workflows'
-    schedule:
-      interval: monthly
+      interval: weekly
       day: monday
-      time: '09:00'
-      timezone: 'America/Los_Angeles'
-    cooldown:
-      default-days: 2
-    labels:
-      - 'dependencies'
-      - 'github-actions'
-      - 'no-changelog'
-
-  - package-ecosystem: github-actions
-    directory: '/.github/actions'
-    schedule:
-      interval: monthly
-      day: monday
-      time: '09:00'
-      timezone: 'America/Los_Angeles'
-    cooldown:
-      default-days: 2
-    labels:
-      - 'dependencies'
-      - 'github-actions'
-      - 'no-changelog'
+      time: 09:00
+      timezone: America/Los_Angeles
+    open-pull-requests-limit: 1
